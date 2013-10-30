@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block "title" %}LastFM music into VK.com status - LastFM.initab.ru{% endblock %}
+
+{% block "container" %}
+
+<h1>VK.com audiostatus</h1>
+<p>Service translates the music you listen to (if scrobbling on Last.FM), in your status in the the most popular social network in the CIS countries, <a href="http://vk.com/">VK.COM</a>.</p>
+<h2>Registration</h2>
+<p>To start using the service, just fill out the form below</p>
+<form action="/_vkstatus/send_last/" class="form-inline well">
+    {% if alerts.vkstatus == "success" %}
+		<div class="alert alert-block">
+			<button class="close" data-dismiss="alert">×</button>
+			<h4 class="alert-heading">Success!</h4>
+			User added successfully!
+		</div>
+	{% else %}
+    Username on Last.FM:
+    <div class="input-append">
+	<input name="lastfm_user" class="span2" type="text"/><input type="submit" class="btn">
+    </div>
+
+	{% endif %}
+
+</form>
+<p><a href="http://vk.com/lastfm_audiostatus">Our community on vk.com.</a></p>
+{% endblock %}

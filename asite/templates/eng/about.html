@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block "container" %}
+
+<h1>About Service</h1>
+<p>The site has only one service available at the moment - <a href="vkstatus">Transmitting music from Last.FM status into social network "VK.com"</a>.
+</p>
+<h2>News</h2>
+<h3>25/07/2012</h3>
+<p>What's new:</p>
+<ul>
+<li> Now the site has at least some sort of design so you can share the link without being ashame
+<li> A total refactoring of the code has been carried out, now the whole service works on Python + Django. Sources will be posted later.
+<li> Database Users has been moved from the platform-based storage on a more versatile and flexible Django ORM.
+<li> Now the server component doesn't depend on the platform and (theoretically) can be scaled.
+</ul>
+<p>Ideas for development:</p>
+<ul>
+<li> Custom status format (so you can replace the default "Now playing")
+<li> Restoration of the previous status after listening to the music.
+</ul>
+{% endblock %}

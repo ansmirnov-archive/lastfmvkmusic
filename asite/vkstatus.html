@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block "title" %}Трансляция музыки в VK.com - LastFM.initab.ru{% endblock %}
+
+{% block "container" %}
+
+<h1>Трансляция музыки в VK.com</h1>
+<p>Сервис транслирует музыку, которую Вы слушаете (при условии скробблинга на Last.FM), в Ваш статус в социальной сети VK.com</p>
+<h2>Регистрация</h2>
+<p>Начать пользоваться сервисом очень просто. Введите ваше имя пользователя на Last.FM в поле ниже.</p>
+<form action="/_vkstatus/send_last/" class="form-inline well">
+    {% if alerts.vkstatus == "success" %}
+		<div class="alert alert-block">
+			<button class="close" data-dismiss="alert">×</button>
+			<h4 class="alert-heading">Успешно!</h4>
+			Пользователь успешно добавлен!
+		</div>
+	{% else %}
+    Имя пользователя на Last.FM:
+    <div class="input-append">
+	<input name="lastfm_user" class="span2" type="text"/><input type="submit" class="btn">
+    </div>
+
+	{% endif %}
+
+</form>
+<p><a href="http://vk.com/lastfm_audiostatus">Группа приложения В Контакте</a></p>
+{% endblock %}

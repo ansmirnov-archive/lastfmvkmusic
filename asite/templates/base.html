@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{% block "title" %}LastFM.initab.ru{% endblock %}</title>
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+	
+
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"></script>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36828826-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+ </script>
+
+</head>
+
+<body>
+
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">LastFM.initab.ru</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="vkstatus">VK.com Audiostatus</a></li>
+            </ul>
+			        <ul class="nav pull-right">
+			<li>
+				<a href="#" onclick='document.cookie = "lang=eng; path=/;"; window.location.reload()'>
+					<img src="/static/img/eng-flag.gif" title="English version"/>
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick='document.cookie = "lang=rus; path=/;"; window.location.reload()'>
+					<img src="/static/img/rus-flag.gif" title="Русская версия"/>
+				</a>
+			</li>
+        </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+    
+    {% block "container" %}
+		<section id="audiostatus">
+			<h2>Трансляция музыки в VK.com</h2>
+			Сервис транслирует музыку, которую Вы слушаете (при условии скробблинга на Last.FM), в Ваш статус в социальной сети VK.com
+			<h3>Регистрация</h3>
+			<p>Начать пользоваться сервисом очень просто. Введите ваше имя пользователя на Last.FM в поле ниже.</p>
+		<form action="/cgi-bin/send_last.html" class="form-inline well">
+			Имя пользователя на Last.FM:
+			<div class="input-append">
+				<input name="last_fm" class="span2" type="text"/><input type="submit" class="btn">
+			</div>
+		</form>
+		</section>
+    {% endblock %}
+
+	<hr />
+	<footer>
+		© initab 2012
+		<br> E-mail: <a href="mailto:as@initab.ru">as@initab.ru</a>
+	</footer>
+
+
+    </div>
+
+	
+    <script src="/static/bootstrap/js/jquery.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-transition.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-popover.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-button.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-typeahead.js"></script>
+	
+</body>
+</html>

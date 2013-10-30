@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block "title" %}Трансляция музыки в VK.com - LastFM.initab.ru{% endblock %}
+
+{% block "container" %}
+
+<script>
+    function press_get_token() {
+	dojo.style('access_token_request', 'display', '');
+    }
+</script>
+
+<h1>Трансляция музыки в VK.com</h1>
+<p>Сервис транслирует музыку, которую Вы слушаете (при условии скробблинга на Last.FM), в Ваш статус в социальной сети VK.com</p>
+<h2>Регистрация</h2>
+<form action="/_vkstatus/send_last/" class="form-inline well">
+    {% if alerts.vkstatus == "success" %}
+		<div class="alert alert-block">
+			<button class="close" data-dismiss="alert">×</button>
+			<h4 class="alert-heading">Успешно!</h4>
+			Пользователь успешно добавлен!
+		</div>
+	{% else %}
+	
+    
+<table>
+<tr>
+<td>
+Access Token:
+</td>
+<td>
+    Нажмите на кнопку <b>Get Access Token</b>. После того, как завершится процедура авторизации в социальной сети, скопируйте содержимое адресной строки в поле ниже <br />
+    <div class="input-append">
+	<input name="access_token" class="span4" type="text"/><a href="https://oauth.vk.com/authorize?client_id=2816931&scope=audio,status,offline&redirect_uri=http://oauth.vk.com/blank.html&response_type=token" target="_blank" type="" class="btn">Get Access Token</a>
+    </div>
+    <br />
+    <b>Внимание!</b> Мы не воруем Ваших паролей! Содержимое адресной строки необходимо для того, чтобы приложение получило доступ к редактированию Вашего статуса. Приложению даются только те права, которые необходимы для корректной работы.
+    </td>
+</tr>
+<tr>
+    <td>Имя пользователя на Last.FM:</td>
+    <td>
+    <div class="input-append">
+	<input name="lastfm_user" class="span2" type="text"/><input type="submit" class="btn btn-primary">
+    </div>
+    </td>
+</tr>
+<tr><td>&nbsp;</td><td></td></tr>
+<tr>
+<td style="vertical-align: top;">
+    Маска статуса:<br /> <i>(необязательно)</i>
+</td>
+<td>
+    <input name="pattern" class="span4" type="text" value="Now playing: %artist% - %track%"/> Аудиостатус: <input type="checkbox" name="broadcast_audio">
+    <br>
+    <i>
+    Поддерживаемые теги: <b>%artist%</b> - Артист <b>%track%</b> - Название композиции
+    <br />
+    Аудиостатус работает в тестовом режиме, поэтому могут быть сбои. Для того, чтобы эта функция работала необходимо поставить галочку "Транслировать в статус играющую музыку", которая появляется при смене статуса: 
+    <br />
+    <img src="/static/img/status.jpg">
+    
+    </i>
+    
+</td>
+
+</tr>
+</table>
+
+
+	{% endif %}
+
+</form>
+<p><a href="http://vk.com/lastfm_audiostatus">Группа приложения В Контакте</a></p>
+{% endblock %}
